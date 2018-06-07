@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiResponseWrapper", "ApiResponseWrapper\ApiResponseWrapper.csproj", "{578929D9-DEF8-4E76-BE10-04B877DF684A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiResponseWrapper.Web", "..\ApiResponseWrapper.Web\ApiResponseWrapper.Web.csproj", "{B5DFE1D9-E434-470B-9471-F479D4BDBD28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiResponseWrapper.Web", "ApiResponseWrapper.Web\ApiResponseWrapper.Web.csproj", "{B5DFE1D9-E434-470B-9471-F479D4BDBD28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

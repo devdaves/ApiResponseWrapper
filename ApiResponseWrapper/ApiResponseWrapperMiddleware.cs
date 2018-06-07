@@ -36,9 +36,9 @@ namespace ApiResponseWrapper
                     try
                     {
                         await next(context);
-
+                        
                         context.Response.Body = currentBody;
-                        await this.UpdateContextResponse(context, GetActionResult(memoryStream));
+                        await this.UpdateContextResponse(context, GetActionResult(memoryStream), BuildError(context.Response));
                     }
                     catch (Exception exception)
                     {
@@ -74,6 +74,20 @@ namespace ApiResponseWrapper
             await context.Response.WriteAsync(JsonConvert.SerializeObject(result, settings));
         }
 
+        private ApiError BuildError(HttpResponse response)
+        {
+            if (IsSuccessStatusCode(response.StatusCode))
+            {
+                return null;
+            }
+
+            return new ApiError
+            {
+                Code = response.StatusCode,
+                Message = ((HttpStatusCode)response.StatusCode).ToString()
+            };
+        }
+
         private ApiError BuildError(Exception exception)
         {
             var error = new ApiError
@@ -99,6 +113,11 @@ namespace ApiResponseWrapper
             }
 
             return error;
+        }
+
+        private bool IsSuccessStatusCode(int statusCode)
+        {
+            return statusCode >= 200 && statusCode <= 299;
         }
     }
 }
