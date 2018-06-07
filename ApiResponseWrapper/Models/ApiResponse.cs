@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace ApiResponseWrapper
+namespace ApiResponseWrapper.Models
 {
     public class ApiResponse<T> where T: class
     {
